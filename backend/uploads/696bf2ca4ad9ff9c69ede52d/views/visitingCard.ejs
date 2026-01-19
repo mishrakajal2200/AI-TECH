@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Visiting Card</title>
+  <!-- Bootstrap CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+  <div class="container my-5">
+    <!-- Paragraph to guide the user -->
+    <div class="text-center mb-4">
+      <h4 class="text-success font-weight-bold">Hover over the card below to flip it and view more details!</h4>
+    </div>
+    <div class="row card bg-success shadow-lg rounded flip-card" style="max-width: 700px; margin: auto;background-color: transparent;">
+      <div class="flip-card-inner">
+        <!-- Front of the card -->
+        <div class="col-12 col-lg-12 flip-card-front">
+          <div class="card-body">
+            <!-- Flex Container for Logo and Info -->
+            <div class="d-flex flex-column flex-md-column flex-lg-row align-items-start">
+              <!-- Company Logo -->
+              <div class="flex-shrink-0 text-center mb-3 mb-lg-0 mr-lg-4">
+                <img src="<%= companyLogo %>" alt="Company Logo" class="company-logo img-fluid">
+                <p class="company-name ml-5">
+                  <span class="font-weight-bold">AGRO</span><br>
+                  consult
+                </p>
+              </div>
+          
+              <!-- Info Section -->
+              <div class="flex-grow-0">
+                <h2><%= companyName %></h2>
+                <div class="info-section">
+                  <div class="contact-item">
+                    <i class="fas fa-user icon-circle btn-primary p-1 rounded-circle"></i>
+                    <span><%= userName %></span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-map-marker-alt icon-circle btn-danger p-1 mt-1 rounded-circle"></i>
+                    <span><%= location %></span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-envelope icon-circle btn-info p-1 mt-1 rounded-circle"></i>
+                    <span><%= email %></span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-globe icon-circle btn-success p-1 mt-1 rounded-circle"></i>
+                    <span><%= website %></span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-phone icon-circle btn-warning p-1 mt-1 rounded-circle"></i>
+                    <span><%= contacts %></span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fab fa-whatsapp icon-circle btn-success p-1 mt-1 rounded-circle"></i>
+                    <span><%= Watsapps %></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          
+            <!-- Social Media Links -->
+            <div class="text-center social-links ml-4">
+              <% if (socialMediaLinks.facebook) { %>
+                <a href="<%= socialMediaLinks.facebook %>" target="_blank">
+                  <i class="fab fa-facebook-f mr-2 text-primary"></i>
+                </a>
+              <% } %>
+              <% if (socialMediaLinks.instagram) { %>
+                <a href="<%= socialMediaLinks.instagram %>" target="_blank">
+                  <i class="fab fa-instagram mr-2 text-danger"></i>
+                </a>
+              <% } %>
+              <% if (socialMediaLinks.youtubeChannel) { %>
+                <a href="<%= socialMediaLinks.youtubeChannel %>" target="_blank">
+                  <i class="fab fa-youtube mr-2 text-danger"></i>
+                </a>
+              <% } %>
+              <% if (socialMediaLinks.googleBusiness) { %>
+                <a href="<%= socialMediaLinks.googleBusiness %>" target="_blank">
+                  <i class="fab fa-google mr-2 text-success"></i>
+                </a>
+              <% } %>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Back of the card (Information side) -->
+        <div class="col-12 col-lg-12 flip-card-back bg-white d-flex flex-column align-items-center justify-content-center">
+          <!-- Company Logo centered -->
+          <img src="<%= companyLogo %>" alt="company logo" class="company-logo mb-3" style="max-width: 150px;">
+          
+          <!-- Company Name -->
+          <p class="company-name text-center font-weight-bold" style="font-size: 24px;">INDI AGRO HARVEST PVT LTD</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

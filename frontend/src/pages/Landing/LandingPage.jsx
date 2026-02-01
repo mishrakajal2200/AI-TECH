@@ -10,7 +10,7 @@ export default function LandingPage() {
         {/* Hero Section */}
         <div className="text-center">
           <h1 className="text-5xl sm:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-            AI Tech-Debt Eliminator ci/cd
+            AI Tech-Debt Eliminator
           </h1>
 
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
@@ -23,7 +23,7 @@ export default function LandingPage() {
               to="/upload"
               className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 transition shadow-lg flex items-center gap-2"
             >
-              Get Started <ArrowRight size={18} />
+              Get <ArrowRight size={18} />
             </Link>
 
             <Link

@@ -1,7 +1,9 @@
-name: Frontend CI/CD Pipeline
+name: MERN CI/CD Pipeline
 
 on:
   push:
+    branches: [ "main" ]
+  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -9,25 +11,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: |
-          cd frontend
-          npm install
+      # ================= BACKEND CI =================
 
-      - name: Build frontend
-        run: |
-          cd frontend
-          npm run build
+      - name: Install Backend Dependencies
+        working-directory: backend
+        run: npm install
 
-      - name: Deploy to Vercel
+      - name: Run Backend Tests
+        working-directory: backend
+        run: npm test
+
+      # ================= FRONTEND CI =================
+
+      - name: Install Frontend Dependencies
+        working-directory: frontend
+        run: npm install
+
+      - name: Build Frontend
+        working-directory: frontend
+        run: npm run build
+
+      # ================= FRONTEND CD =================
+
+      - name: Deploy Frontend to Vercel
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}

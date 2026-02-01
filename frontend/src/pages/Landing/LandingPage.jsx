@@ -23,7 +23,7 @@ export default function LandingPage() {
               to="/upload"
               className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 transition shadow-lg flex items-center gap-2"
             >
-              Get <ArrowRight size={18} />
+              Get Started <ArrowRight size={18} />
             </Link>
 
             <Link

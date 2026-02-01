@@ -1,9 +1,7 @@
-name: MERN CI/CD Pipeline
+name: Frontend CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -19,17 +17,20 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Backend Dependencies
+      - name: Install dependencies
         run: |
-          cd server
+          cd frontend
           npm install
 
-      - name: Install Frontend Dependencies
+      - name: Build frontend
         run: |
-          cd client
-          npm install
+          cd frontend
+          npm run build
 
-      - name: Run Backend Tests
-        run: |
-          cd server
-          npm test
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./frontend

@@ -10,7 +10,7 @@ export default function LandingPage() {
         {/* Hero Section */}
         <div className="text-center">
           <h1 className="text-5xl sm:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-            AI Tech-Debt Eliminator
+            AI Tech-Debt Eliminator ci/cd
           </h1>
 
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
